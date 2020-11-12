@@ -7,5 +7,5 @@
 
 ### 架构设计
  1. 服务器（Spring boot + Hibernate + JPA + Mysql）
- 2. 管理端（集成钉钉小程序）
+ 2. 移动端（管理端+实施人员，前端钉钉小程序）
  3. 实施端（Winform Application，免安装）
