@@ -1,0 +1,18 @@
+{
+  "defaultTitle": "新增项目",
+  "usingComponents": {
+    "steps": "mini-ali-ui/es/steps/index",
+    "stepper": "mini-ali-ui/es/stepper/index",
+    "list": "mini-ali-ui/es/list/index",
+    "list-item": "mini-ali-ui/es/list/list-item/index",
+    "vtabs": "mini-ali-ui/es/vtabs/index",    
+    "tabs": "mini-ali-ui/es/tabs/index",
+    "vtab-content": "mini-ali-ui/es/vtabs/vtab-content/index",
+    "tab-content": "mini-ali-ui/es/tabs/tab-content/index",
+    "title": "mini-ali-ui/es/title/index",
+    "input-item": "mini-ali-ui/es/input-item/index",
+    "am-icon": "mini-ali-ui/es/am-icon/index",
+    "multi-liner": "mini-ali-ui/es/multi-liner/index",
+    "picker-item": "mini-ali-ui/es/picker-item/index"
+  }
+}

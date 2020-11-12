@@ -1,0 +1,7 @@
+.changeColor {
+  font-size: 11px;
+  color: #ccc;
+}
+.inputCls{
+  color:rgb(34, 34, 196);
+}

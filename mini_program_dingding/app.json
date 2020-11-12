@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "page/component/index",
+    "page/xxx/paddingcode/paddingcode",
+    "page/xxx/info/info",
+    "page/component/aclist/aclist",
+    "page/component/rootsync/rootsync",
+    "page/component/projectlist/projectlist",
+    "page/component/about/about",
+    "page/component/help/help",
+    "page/component/projectinfo/projectinfo",
+    "page/component/newproject/newproject"
+  ],
+  "window": {
+    "defaultTitle": "授权管理系统 - v0.1",
+    "backgroundColor": "#F5F5F9",
+    "pullRefresh": false,
+    "allowsBounceVertical": "YES"
+  },
+  "tabBar": {
+    "textColor": "#404040",
+    "selectedColor": "#108ee9",
+    "backgroundColor": "#F5F5F9",
+    "font-size": "30pt",
+    "items": [
+      {
+        "pagePath": "page/xxx/paddingcode/paddingcode",
+        "icon": "image/icon_API.png",
+        "activeIcon": "image/icon_component_HL.png",
+        "name": "授权码审批",
+        "borderStyle": "black"
+      },
+      {
+        "pagePath": "page/component/index",
+        "icon": "image/icon_component_HL.png",
+        "activeIcon": "image/icon_component_HL.png",
+        "name": "劳吉克"
+      },
+      {
+        "pagePath": "page/xxx/info/info",
+        "icon": "image/icon_component.png",
+        "activeIcon": "image/icon_component_HL.png",
+        "name": "个人信息"
+      }
+    ]
+  },
+  "debug": true
+}

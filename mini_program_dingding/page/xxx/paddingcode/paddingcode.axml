@@ -1,0 +1,26 @@
+<view a:for="{{projectList}}" key="{{item.content}}" style="padding:3rpx" hover-stop-propagation="true">
+    <list>
+      <swipe-action 
+        index="{{index}}" 
+        right="{{item.right}}" 
+        onSwipeStart="onSwipeStart" 
+        onRightItemClick="onRightItemClick"
+        restore="{{swipeIndex === null || swipeIndex !== index}}" 
+        extra="item{{index}}"
+        >
+        <list-item 
+          arrow="horizontal" 
+          index="{{index}}" 
+          key="items-{{index}}" 
+          titlePosition="top"
+          thumb="image/Icon_PaddingCode.png"
+          onClick="onItemClick" 
+          last="{{index === list.length - 1}}" 
+          upperSubtitle="{{item.licenceTo}}" 
+          lowerSubtitle="{{item.upperSubtitle}}"
+          >
+          {{item.content}}
+        </list-item>
+      </swipe-action>
+    </list>
+</view>

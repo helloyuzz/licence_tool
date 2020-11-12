@@ -1,0 +1,17 @@
+{ "usingComponents": {
+   "am-icon": "mini-ali-ui/es/am-icon/index"
+ },
+  "extEnable": false,
+  "ext": {},
+  "extPages": {
+    "pages/xxx/index": {
+      "defaultTitle": "override",
+      "optionMenu": {
+        "icon": "xx"
+      }
+    }
+  },
+  "pages": [
+    "pages/xxx/index"
+  ]
+}

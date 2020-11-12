@@ -1,0 +1,42 @@
+<view>
+  <!-- {{content}} -->
+  <tabs tabs="{{tabs}}" onTabClick="handleTabClick" onChange="handleTabChange" activeTab="{{activeTab}}">
+    <tab-content key="0">
+      <view style="border: 1px solid #eee; height: 800px; box-sizing: border-box">
+        <list-item>
+          <label>项目名称：</label>
+          <text style="color:darkblue">{{project_name}}</text>
+        </list-item>
+        <list-item>
+          <label>签订日期：</label>
+          <text style="color:darkblue">{{sign_date}}</text>
+        </list-item>
+        <list-item>
+          <label>预计完工：</label>
+          <text style="color:darkblue">{{finish_date}}</text>
+        </list-item>
+        <list-item>
+          <label>实施责任人：</label>
+          <text style="color:darkblue">{{employee_name}}</text>
+        </list-item>
+        <list-item>
+          <label>LicenceCode：</label>
+          <text style="color:darkblue">{{licence_code}}</text>
+        </list-item>
+        <list-item>
+          <label>唯一业务代码：</label>
+          <text style="color:darkblue">{{unique_code}}</text>
+        </list-item>
+        <list-item>
+          <label>备注信息：</label>
+          <text style="color:darkblue">{{project_desc}}</text>
+        </list-item>
+      </view>
+    </tab-content>
+    <tab-content key="1">
+      <view style="border: 1px solid #eee; height: 800px; box-sizing: border-box">
+        <steps activeIndex="{{stepActiveIndex}}" items="{{stepItems}}" direction="vertical"></steps>
+      </view>
+    </tab-content>
+  </tabs>
+</view>

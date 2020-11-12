@@ -1,0 +1,13 @@
+,
+      {
+        "pagePath": "page/API/index/index",
+        "icon": "image/icon_API.png",
+        "activeIcon": "image/icon_API_HL.png",
+        "name": "授权记录"
+      },
+      {
+        "pagePath": "page/biz/index",
+        "icon": "image/icon_biz.png",
+        "activeIcon": "image/icon_biz_HL.png",
+        "name": "个人信息"
+      }

@@ -1,0 +1,13 @@
+{
+  "defaultTitle": "项目管理",
+  "usingComponents": {
+    "am-icon": "mini-ali-ui/es/am-icon/index",
+    "button": "mini-ali-ui/es/button/index",
+    "radio": "mini-ali-ui/es/am-radio/index",
+    "checkbox": "mini-ali-ui/es/am-checkbox/index",
+    "am-grid": "mini-ali-ui/es/grid/index",
+    "list": "mini-ali-ui/es/list/index",
+    "list-item": "mini-ali-ui/es/list/list-item/index",
+    "swipe-action": "mini-ali-ui/es/swipe-action/index"
+  }
+}

@@ -1,0 +1,32 @@
+<!-- <picker onChange="stepIndexPickerChange" value="{{stepIndex}}" range="{{stepArray}}">
+    <view class="picker">
+      当前选择：{{stepArray[stepIndex]}}
+    </view>
+  </picker> -->
+<button type="primary" onTap="onSwitchProject" style="margin:13px">{{btn_Text}}</button>
+<view a:for="{{list}}" key="{{item.content}}" style="padding:3rpx" hover-stop-propagation="true">
+    <list>
+      <swipe-action 
+        index="{{index}}" 
+        right="{{item.right}}" 
+        onSwipeStart="onSwipeStart" 
+        onRightItemClick="onRightItemClick"
+        restore="{{swipeIndex === null || swipeIndex !== index}}" 
+        extra="item{{index}}"
+        >
+        <list-item 
+          arrow="horizontal" 
+          index="{{index}}" 
+          titlePosition="top"
+          thumb="image/{{item.thumb}}"
+          key="items-{{index}}" 
+          onClick="onItemClick" 
+          last="{{index === list.length - 1}}" 
+          upperSubtitle="{{item.upperSubtitle}}" 
+          lowerSubtitle="{{item.licenceTo}}"
+          >
+          {{item.content}}
+        </list-item>
+      </swipe-action>
+    </list>
+</view>

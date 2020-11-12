@@ -1,0 +1,14 @@
+{
+  "defaultTitle": "",
+  "usingComponents": {
+    "steps": "mini-ali-ui/es/steps/index",
+    "stepper": "mini-ali-ui/es/stepper/index",
+    "list": "mini-ali-ui/es/list/index",
+    "list-item": "mini-ali-ui/es/list/list-item/index",
+    "vtabs": "mini-ali-ui/es/vtabs/index",    
+    "tabs": "mini-ali-ui/es/tabs/index",
+    "vtab-content": "mini-ali-ui/es/vtabs/vtab-content/index",
+    "tab-content": "mini-ali-ui/es/tabs/tab-content/index",
+    "title": "mini-ali-ui/es/title/index"
+  }
+}
