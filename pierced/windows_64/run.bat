@@ -1,0 +1,1 @@
+ding.exe -config=ding.cfg -subdomain=ajcc 8080
