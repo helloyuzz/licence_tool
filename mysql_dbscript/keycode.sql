@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 12/11/2020 10:02:59
+ Date: 12/05/2021 14:15:02
 */
 
 SET NAMES utf8mb4;
@@ -30,7 +30,7 @@ CREATE TABLE `employee`  (
   `reg_time` datetime(0) NULL DEFAULT NULL COMMENT '注册日期',
   `login_time` datetime(0) NULL DEFAULT NULL COMMENT '最近登录',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of employee
@@ -79,25 +79,25 @@ CREATE TABLE `project`  (
   `hardware_info` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '硬件信息',
   `licence_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '授权码',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of project
 -- ----------------------------
 INSERT INTO `project` VALUES (1, '四川省中医', 1, '2020-01-13', '2020-01-13', 1, '7fbc0d98', NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `project` VALUES (2, '重医附一', 2, '2020-01-13', '2020-01-13', 2, 'E583A3C', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `project` VALUES (2, '重医附一', 2, '2020-01-13', '2020-01-13', 1, 'E583A3C', NULL, NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `project` VALUES (3, 'aa', 11, '2020-01-13', '2020-01-13', 1, 'f005d34F', '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `project` VALUES (4, 'aaa', 1, '2020-01-13', '2020-01-13', 1, '9EfEeE1C', '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `project` VALUES (5, 'sadfasdf', 11, '2020-01-13', '2020-01-13', 1, '', '', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `project` VALUES (6, 'asdfasf', 11, '2020-01-13', '2020-01-13', 2, '', '', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `project` VALUES (7, 'asdfasdf', 11, '2020-01-13', '2020-01-13', 2, '', '', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `project` VALUES (8, 'sdfasdf', 11, '2020-01-13', '2020-01-19', 2, '', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `project` VALUES (6, 'asdfasf', 11, '2020-01-13', '2020-01-13', 1, '', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `project` VALUES (7, 'asdfasdf', 11, '2020-01-13', '2020-01-13', 1, '', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `project` VALUES (8, 'sdfasdf', 11, '2020-01-13', '2020-01-19', 1, '', '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `project` VALUES (9, 'sdfasdf', 11, '2020-01-13', '2020-01-19', 2, '', '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `project` VALUES (10, 'asdfadsf', 11, '2020-01-13', '2020-01-13', 2, '7fbc0d98', '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `project` VALUES (14, 'aa', 11, '2020-01-13', '2020-01-13', 2, '73bF04e1', '', NULL, NULL, NULL, NULL, NULL);
 INSERT INTO `project` VALUES (15, 'aa', 11, '2020-01-12', '2020-01-12', 3, '61d42934', '', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `project` VALUES (16, 'aa', 1, '2020-01-12', '2020-01-12', 4, '926Be376', '', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO `project` VALUES (17, 'aa', 11, '2020-01-12', '2020-12-30', 0, '145BeB3C', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `project` VALUES (16, 'aa', 1, '2020-01-12', '2020-01-12', 3, '926Be376', '', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `project` VALUES (17, 'aa', 11, '2020-01-12', '2020-12-30', 3, '145BeB3C', '', NULL, NULL, NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for project_step
@@ -109,15 +109,15 @@ CREATE TABLE `project_step`  (
   `step_content` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `step_thumb` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of project_step
 -- ----------------------------
-INSERT INTO `project_step` VALUES (1, 1, '待授权', 'Icon_PaddingCode.png');
-INSERT INTO `project_step` VALUES (2, 2, '实施', 'Icon_PaddingCode.png');
-INSERT INTO `project_step` VALUES (9, 3, '验收', 'Icon_PaddingCode.png');
-INSERT INTO `project_step` VALUES (10, 4, '售后', 'Icon_PaddingCode.png');
+INSERT INTO `project_step` VALUES (1, 1, '新签', 'Icon_PaddingCode.png');
+INSERT INTO `project_step` VALUES (2, 2, '待授权', 'Icon_New.png');
+INSERT INTO `project_step` VALUES (9, 3, '实施', 'Icon_Default.png');
+INSERT INTO `project_step` VALUES (14, 5, '售后', 'Icon_Default.png');
 
 -- ----------------------------
 -- Table structure for system_log
