@@ -6,7 +6,7 @@
     <view class="slogon">
         <image src="/image/logo.png" mode="scaleToFill" class="logo"/>
         <view class="info">
-            <text class="desc">授权管理系统</text>
+            <text class="desc">劳吉克授权管理系统</text>
         </view>
     </view>
     <template is="grid" data="{{...arr}}"/>

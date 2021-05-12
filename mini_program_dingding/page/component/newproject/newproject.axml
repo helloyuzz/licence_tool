@@ -1,25 +1,49 @@
 <view>
   <view style="border: 1px solid #eee; height: 800px; box-sizing: border-box">
-      <label>项目名称：</label>
     <list-item borderRadius="{{true}}">
-      <input-item data-field="project_name" placeholder="请输入项目名称" type="text" inputCls="inputCls" onInput="onItemInput" onClear="onItemClear" value="{{project_name}}" clear="{{true}}" />
+      <input-item 
+      data-field="project_name" 
+      placeholder="请输入项目名称" 
+      type="text" 
+      inputCls="inputCls" 
+      onInput="onItemInput" 
+      onClear="onItemClear" 
+      value="{{project_name}}" 
+      clear="{{true}}" 
+      z-index=-1
+      />
     </list-item>
     <list-item borderRadius="{{true}}">
-      <label>合同日期：</label>
-      <input-item data-field="sign_date" placeholder="请选择" type="text" disabled="true" inputCls="inputCls" value="{{sign_date}}" clear="{{true}}">
+      <input-item 
+      data-field="sign_date" 
+      placeholder="请选择" 
+      type="text" 
+      disabled="true" 
+      inputCls="inputCls" 
+      value="{{sign_date}}" 
+      clear="{{true}}"
+      >签订日期：
         <view onTap="on_datePicker" data-attr="a" slot="extra">
           <am-icon type="right" size="20" color="#ccc"></am-icon>
         </view>
       </input-item>
     </list-item>
     <list-item borderRadius="{{true}}">
-      <label>预计完工日期：</label>
-      <input-item data-field="finish_date" placeholder="请选择" type="text" disabled="true" inputCls="inputCls" value="{{finish_date}}" clear="{{true}}">
+      <input-item 
+      data-field="finish_date" 
+      placeholder="请选择" 
+      type="text" 
+      disabled="true" 
+      inputCls="inputCls" 
+      value="{{finish_date}}" 
+      clear="{{true}}"
+      >竣工日期：
         <view onTap="on_datePicker" data-attr="b" slot="extra">
           <am-icon type="right" size="20" color="#ccc"></am-icon>
         </view>
       </input-item>
     </list-item>
+    <!-- 
     <list-item borderRadius="{{true}}">
       <label>实施员工：</label>
       <picker onChange="employeePickerChange" value="{{employee_Index}}" range="{{employee_Array}}" range-key="name">
@@ -40,7 +64,7 @@
         </view>
       </picker>
     </list-item>
-    <list-item borderRadius="{{true}}">
+      <list-item borderRadius="{{true}}">
       <label>唯一业务标识：</label>
       <input-item data-field="unique_code" placeholder="" type="text" value="{{unique_code}}" inputCls="inputCls" clear="{{true}}"></input-item>
       <title className="changeColor">// 代码由系统自动生成的，无需修改。</title>
@@ -49,8 +73,9 @@
       <label>项目备注：</label>
       <multi-liner data-field="desc" placeholder="填写备注信息" type="text" value="{{project_desc}}" last="{{true}}" inputCls="inputCls" onInput="onDescInput" auto-height="{{true}}" controlled="{{controlled}}"/>
     </list-item>
+    -->
     <list-item borderRadius="{{true}}">
       <button type="primary" onTap="onSaveProjectTap">保存项目信息</button>
-    </list-item>
+    </list-item> 
   </view>
 </view>

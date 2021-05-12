@@ -2,10 +2,13 @@ let app = getApp();
 Page({
   data: {
     activeTab: 0,
+    param_pid: -1,
+    param_pname: '',
+    btnVisable: 'none',
     tabs: [
-      { title: '项目详情' },
+      { title: '授权信息' },
       { title: '当前进度' },
-      { title: '操作' },
+      { title: '更多...' },
     ],
     stepActiveIndex: 3,
     stepItems: [{
@@ -39,6 +42,10 @@ Page({
   async onLoad(param) {
     console.log(param.id);
     console.log(param.project_name);
+    console.log(param.is_Padding);
+    my.showLoading({ content: "加载中..." });
+
+    this.setData({ param_pid: param.id, param_pname: param.project_name });
 
     var projectId = param.id;
     var projectName = param.project_name;
@@ -59,6 +66,11 @@ Page({
       this.setData({ licence_code: projectItem.project.licence_code });
       this.setData({ project_desc: projectItem.project.project_desc });
       this.setData({ stepActiveIndex: projectItem.project.step_index });
+
+      // 判断是否等待授权，是：显示授权按钮，否：不显示按钮
+      if (projectItem.project.step_index == app.ProjectStep.step_waitting_licence) {
+        this.setData({ btnVisable: 'block' });
+      }
     }
 
     // Load ProjectStepArray
@@ -81,7 +93,10 @@ Page({
       this.setData({ stepItems: tempStepArray });
     }
 
-
+    if (param.is_Padding == "true") {  // 从待审批跳转过来
+      this.setData({ activeTab: 1 });
+    }
+    my.hideLoading();
   },
   callBackFn(value) {
     console.log(value);
@@ -111,5 +126,32 @@ Page({
     this.setData({
       activeTab: index,
     });
+  },
+  async agree_licence() {
+    var confirmResult = false;
+    await my.confirm({
+      title: '温馨提示',
+      content: '是否通过该申请？',
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      success: (result) => {
+        confirmResult = result.confirm;
+        // my.alert({
+        //   title: `${result.confirm}`,
+        // });
+      },
+    });
+    if (confirmResult == true) {
+      var saveResult = false;
+
+      saveResult = await app.changeProjectStepById(this.data.param_pid, app.ProjectStep.step_agree_licence);
+      if (saveResult == true) {
+        await app.loadPaddingProjectCount();  // 更新统计数量
+
+        await my.alert({ title: '审批成功' });
+        my.reLaunch({ url: '/page/component/projectinfo/projectinfo?id=' + this.data.param_pid + '&project_name=' + this.data.param_pname });
+
+      }
+    }
   }
 });

@@ -1,6 +1,7 @@
 package com.laojike.keytool.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.criteria.Join;
 
@@ -34,11 +35,23 @@ public class ProjectService {
 		return projectRepository.save(project);
 	}
 
-	public int getPaddingProjectCount() {
-		return projectRepository.getPaddingProjectCount(1);
+	public int getPaddingProjectCount(int step_index) {
+		return projectRepository.getPaddingProjectCount(step_index);
 	}
 
 	public ProjectInfo getProjectDetailById(int projectId) {
 		return projectRepository.getProjectDetailById(projectId);
+	}
+
+	public Boolean changeProjectStepById(int projectId, int step_index) {
+		Optional<Project> project = projectRepository.findById(projectId);
+		project.get().setStep_index(step_index);
+
+		Project saveProject = projectRepository.save(project.get());
+		if (saveProject != null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

@@ -1,18 +1,48 @@
 <view>
   <!-- {{content}} -->
   <tabs tabs="{{tabs}}" onTabClick="handleTabClick" onChange="handleTabChange" activeTab="{{activeTab}}">
-    <tab-content key="0">
-      <view style="border: 1px solid #eee; height: 800px; box-sizing: border-box">
+    <tab-content key="0" tabId="{{index}}" activeTab="{{activeTab}}">
         <list-item>
           <label>项目名称：</label>
           <text style="color:darkblue">{{project_name}}</text>
         </list-item>
         <list-item>
+          <label>唯一业务代码：</label>
+          <text style="color:darkblue">{{unique_code}}</text>
+        </list-item>
+        <list-item>
+          <label>服务器硬件配置：</label>
+          <text style="color:darkblue">{{project_name}}</text>
+        </list-item>
+        <list-item>
+          <label>授权开始日期：</label>
+          <text style="color:darkblue">{{project_name}}</text>
+        </list-item>
+        <list-item>
+          <label>授权有效期（天）：</label>
+          <text style="color:darkblue">{{project_name}}</text>
+        </list-item>
+
+        <list-item>
+          <label>软件注册码：</label>
+          <text style="color:darkblue">{{licence_code}}</text>
+        </list-item>
+    </tab-content>
+    <tab-content key="1">
+      <view style="border: 1px solid #eee; height: 800px; box-sizing: border-box">
+        <steps activeIndex="{{stepActiveIndex}}" items="{{stepItems}}" direction="vertical"></steps>
+        <button size="default" type="primary" style="margin:18px;display:{{btnVisable}};" onTap="agree_licence">同意该授权</button>
+        <button type="warn" hover-class="red" style="margin:18px;display:{{btnVisable}};" onTap="disagree_licence">拒绝授权</button>
+      </view>
+    </tab-content>
+    <tab-content key="2">
+      <view style="border: 1px solid #eee; height: 800px; box-sizing: border-box">
+        <list-item>
           <label>签订日期：</label>
           <text style="color:darkblue">{{sign_date}}</text>
         </list-item>
         <list-item>
-          <label>预计完工：</label>
+          <label>竣工日期：</label>
           <text style="color:darkblue">{{finish_date}}</text>
         </list-item>
         <list-item>
@@ -20,22 +50,9 @@
           <text style="color:darkblue">{{employee_name}}</text>
         </list-item>
         <list-item>
-          <label>LicenceCode：</label>
-          <text style="color:darkblue">{{licence_code}}</text>
-        </list-item>
-        <list-item>
-          <label>唯一业务代码：</label>
-          <text style="color:darkblue">{{unique_code}}</text>
-        </list-item>
-        <list-item>
           <label>备注信息：</label>
           <text style="color:darkblue">{{project_desc}}</text>
         </list-item>
-      </view>
-    </tab-content>
-    <tab-content key="1">
-      <view style="border: 1px solid #eee; height: 800px; box-sizing: border-box">
-        <steps activeIndex="{{stepActiveIndex}}" items="{{stepItems}}" direction="vertical"></steps>
       </view>
     </tab-content>
   </tabs>

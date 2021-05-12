@@ -9,31 +9,14 @@ Page(
       index: null,
     },
     async onLoad(param) {
-      //console.log(param.aa);
-      // console.log(this.name);
-
-      var tempList = await app.loadProjectWithStep(1, 'paddingcode');
+      var tempList = await app.loadProjectWithStep(app.ProjectStep.step_waitting_licence, app.FromPage.paddingcode);
       this.setData({ projectList: tempList });
-      // my.setTabBarBadge({
-      //   index: 0,
-      //   text: getProjects.length
-      // });
     },
-    onRightItemClick(e) {
+    async onRightItemClick(e) {
       const { type } = e.detail;
-      var showContent = '';
+
       if (type == 'other') {
-        my.confirm({
-          title: '温馨提示',
-          content: '是否通过该申请？',
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          success: (result) => {
-            my.alert({
-              title: `${result.confirm}`,
-            });
-          },
-        });
+        
       } else if (type == 'delete') {
         my.confirm({
           title: '温馨提示',
@@ -53,7 +36,7 @@ Page(
       var projectId = this.data.projectList[e.index].id;
       var projectName = this.data.projectList[e.index].content;
       dd.navigateTo({
-        url: `/page/component/projectinfo/projectinfo?id=` + projectId + '&project_name=' + projectName,
+        url: `/page/component/projectinfo/projectinfo?id=` + projectId + '&project_name=' + projectName + '&is_Padding=true',
       });
     },
     onSwipeStart(e) {

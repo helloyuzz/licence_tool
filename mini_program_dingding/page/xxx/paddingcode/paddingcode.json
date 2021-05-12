@@ -1,5 +1,5 @@
 {
-  "defaultTitle": "待审批项目",
+  "defaultTitle": "待授权项目列表",
   "usingComponents": {
     "am-icon": "mini-ali-ui/es/am-icon/index",
     "button": "mini-ali-ui/es/button/index",

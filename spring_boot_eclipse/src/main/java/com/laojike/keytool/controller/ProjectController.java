@@ -45,7 +45,11 @@ public class ProjectController {
 	}
 	
 	@GetMapping("/project/getPaddingProjectCount")
-	public int getPaddingProjectCount() {
-		return projectService.getPaddingProjectCount();
+	public int getPaddingProjectCount(int step_index) {
+		return projectService.getPaddingProjectCount(step_index);
+	}
+	@GetMapping("/project/changeProjectStepById")
+	public Boolean changeProjectStepById(int projectId,int step_index) {
+		return projectService.changeProjectStepById(projectId,step_index);
 	}
 }

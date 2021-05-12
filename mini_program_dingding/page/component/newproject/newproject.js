@@ -18,6 +18,9 @@ Page({
   async onLoad() {
     my.showLoading({ content: "正在加载..." });
 
+    var dt = Date();
+    this.setData({ sign_date: dt.toString()}); 
+
     // Load ProjectStep
     this.setData({ stepArray: [] });
     var tempStepArray = [];
@@ -31,7 +34,7 @@ Page({
       });
       this.setData({ stepArray: tempStepArray });
     }
-
+ 
     // Load All Employee
     this.setData({ employee_Array: [] });
     var getEmployees = await app.getAllEmployee();
@@ -129,7 +132,7 @@ Page({
   on_datePicker(evt) {
     var argu = evt.target.dataset.attr;
     my.datePicker({
-      currentDate: '2020-01-13',
+      currentDate: '{{sign_date}}',
       startDate: '2019-10-18',
       endDate: '2021-10-18',
       success: (res) => {

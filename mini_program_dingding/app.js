@@ -4,17 +4,14 @@ App({
     console.log('getSystemInfoSync', dd.getSystemInfoSync());
     console.log('SDKVersion', dd.SDKVersion);
   },
-  async onShow() {
-    console.log('App Show');
-    my.showNavigationBarLoading();
+  ProjectStep: { step_new_project: 1, step_waitting_licence: 2, step_agree_licence: 3, step_building: 4, step_completed: 5, step_online_working: 6 },
+  FromPage: { paddingcode: 'paddingcode', projectlist: 'projectlist' },
+  async loadPaddingProjectCount() {
     var getPaddingProjectCount = 0;
     await my.httpRequest({
       url: this.globalData.appurl + '/project/getPaddingProjectCount',
       method: 'GET',
-      data: {
-        from: '支付宝',
-        production: 'AlipayJSAPI',
-      },
+      data: { 'step_index': this.ProjectStep.step_waitting_licence },
       headers: {
         'content-type': 'application/json'  //默认值
       },
@@ -23,7 +20,7 @@ App({
         getPaddingProjectCount = res.data;
       },
       fail: function (res) {
-        my.alert({ content: 'fail' });
+        my.alert({ content: this.globalData.ERROR_MSG_CantConnect });
       },
       complete: function (res) {
         my.hideLoading();
@@ -36,7 +33,11 @@ App({
         text: getPaddingProjectCount
       });
     }
-
+  },
+  async onShow() {
+    console.log('App Show');
+    my.showNavigationBarLoading();
+    await this.loadPaddingProjectCount();
     my.hideNavigationBarLoading();
   },
   onHide() {
@@ -131,13 +132,13 @@ App({
           thumb = item.projectStep != null ? item.projectStep.step_thumb : "Icon_Default.png";
           newItem.right = new Array();
           if (fromPage == "paddingcode") {  // 待审批授权
-            newItem.right.push({ 'type': 'other', 'text': '审批通过' });
-            newItem.right.push({ 'type': 'delete', 'text': '审批拒绝' });
+            // newItem.right.push({ 'type': 'other', 'text': '审批通过', 'projectId': item.project.id });
+            // newItem.right.push({ 'type': 'delete', 'text': '审批拒绝', 'projectId': '' });
 
             subTitle = "合同日期：" + item.project.sign_date + "，实施人员：" + item.employee.name;
             secTitle = "当前进度：" + item.projectStep.step_content;
           } else {  // 所有羡慕列表
-            newItem.right.push({ 'type': 'other', 'text': '查看详情' });
+            // newItem.right.push({ 'type': 'other', 'text': '查看详情' });
 
             subTitle = "合同日期：" + item.project.sign_date;//"" + ;
             secTitle = "当前进度：" + (item.projectStep != null ? item.projectStep.step_content : "");
@@ -201,5 +202,25 @@ App({
       }
     });
     return tempEmployeeList;
+  },
+  async changeProjectStepById(projectId, step_index) {
+    var changeResult = false;
+    await my.httpRequest({
+      url: this.globalData.appurl + '/project/changeProjectStepById',
+      method: 'GET',
+      data: { 'projectId': projectId, 'step_index': step_index },
+      headers: { 'content-type': 'application/json' },
+      dataType: 'json',
+      success: function (res) {
+        changeResult = true;
+      },
+      fail: function (res) {
+        my.alert({ content: app.globalData.ERROR_MSG_CantConnect });
+      },
+      complete: function (res) {
+        my.hideLoading();
+      }
+    });
+    return changeResult;
   }
 });
